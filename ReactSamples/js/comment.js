@@ -1,0 +1,1 @@
+ReactDOM.render(<div>Comment form</div>,document.getElementById("content"));
