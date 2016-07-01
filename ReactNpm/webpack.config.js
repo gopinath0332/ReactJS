@@ -6,7 +6,7 @@ var path = require('path');
 module.exports = {
     context: path.join(__dirname, "src"),
     devtool: debug ? "inline-sourcemap" : null,
-    entry: "./js/CommentBox.jsx",
+    entry: "./js/Route.jsx",
     module: {
         loaders: [{
             test: /\.jsx?$/,
