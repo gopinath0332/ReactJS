@@ -6,7 +6,7 @@ var path = require('path');
 module.exports = {
     context: path.join(__dirname, "src"),
     devtool: debug ? "inline-sourcemap" : null,
-    entry: "./js/Route.js",
+    entry: "./js/CommentBox.jsx",
     module: {
         loaders: [{
             test: /\.jsx?$/,
@@ -25,6 +25,9 @@ module.exports = {
     plugins: debug ? [] : [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: false,
+            sourcemap: false
+        }),
     ],
 };
