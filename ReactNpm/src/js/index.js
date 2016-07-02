@@ -3,3 +3,10 @@ require("./CommentBox");
 
 
 console.log("index js");
+
+
+class Person {
+    constructor() {
+
+    }
+}

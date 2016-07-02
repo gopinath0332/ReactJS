@@ -3,18 +3,6 @@ var React = require("react"),
     $ = require("jquery");
 
 const [targetNode] = $("#content");
-var blobData = [
-    {
-        name: "Jhonny",
-        "comment": "Comment from Jhonny"
-    }, {
-        name: "Jhonny1",
-        "comment": "Comment from Jhonny1"
-    }, {
-        name: "Jhonny2",
-        "comment": "Comment from Jhonny2"
-    }
-];
 
 var CommentBox = React.createClass({
     getInitialState: function() {
