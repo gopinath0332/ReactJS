@@ -5,16 +5,22 @@ import {Router, Route, IndexRoute, hashHistory, Link} from "react-router";
 
 const [targetNode] = $("#content");
 const viewStyle = {
-    clear: "both"
+    clear: {
+        clear: "both"
+    }
+
 }
 
-var MenuLink = React.createClass({
-    changeNavClass: function(e) {
+class MenuLink extends React.Component {
+    constructor() {
+        super();
+    }
+    changeNavClass(e) {
         var [activeNode] = $(".active");
         $(activeNode).removeClass("active");
         $(e.target.parentNode).addClass("active");
-    },
-    render: function() {
+    }
+    render() {
         return (
             <ul class="nav nav-pills">
                 <li role="presentation" onClick={this.changeNavClass} class="active">
@@ -26,35 +32,35 @@ var MenuLink = React.createClass({
                 <li role="presentation" onClick={this.changeNavClass}>
                     <Link to="view3" class="btn btn-default">View3</Link>
                 </li>
-                <div style={viewStyle}>{this.props.children}</div>
+                <div style={viewStyle.clear}>{this.props.children}</div>
             </ul>
         );
     }
-});
+}
 
-var View1 = React.createClass({
-    render: function() {
+class View1 extends React.Component {
+    render() {
         return (
-            <h1>View1</h1>
+            <h1>This is View 1</h1>
         );
     }
-});
+}
 
-var View2 = React.createClass({
-    render: function() {
+class View2 extends React.Component {
+    render() {
         return (
-            <h1>View2</h1>
+            <h1>This is View 2</h1>
         );
     }
-});
+}
 
-var View3 = React.createClass({
-    render: function() {
+class View3 extends React.Component {
+    render() {
         return (
-            <h1>View3</h1>
+            <h1>This is View 3</h1>
         );
     }
-});
+}
 
 ReactDom.render(
     <div>
@@ -66,4 +72,4 @@ ReactDom.render(
             <Route path="/view3" component={View3}></Route>
         </Route>
     </Router>
-</div>, targetNode);;
+</div>, targetNode);
