@@ -49,7 +49,7 @@ class View1 extends React.Component {
 class View2 extends React.Component {
     render() {
         return (
-            <h1>This is View 2</h1>
+            <div>View 2</div>
         );
     }
 }
@@ -67,9 +67,9 @@ ReactDom.render(
     <Router history={hashHistory}>
         <Route path="/" component={MenuLink}>
             <IndexRoute component={View1}></IndexRoute>
-            <Route path="/view2" component={View2}></Route>
+            <Route path="/view2" url="js/view2.html" component={View2}></Route>
             <Route path="/view1" component={View1}></Route>
             <Route path="/view3" component={View3}></Route>
         </Route>
     </Router>
-</div>, targetNode);
+</div>, targetNode);;

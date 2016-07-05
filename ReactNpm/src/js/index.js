@@ -7,6 +7,6 @@ console.log("index js");
 
 class Person {
     constructor() {
-
+        console.log("Person constructor");
     }
 }
