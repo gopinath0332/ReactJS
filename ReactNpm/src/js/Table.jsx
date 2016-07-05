@@ -74,16 +74,25 @@ var Table = React.createClass({
         this.setState({"recordCount": count});
     },
     render: function() {
-        var inputStyle = {
-            "margin-right": "10px"
+        const pageStyle = {
+            inputStyle: {
+                "margin-right": "10px"
+            },
+            tableStyle: {
+                "margin": "5px 0px 0px 0px",
+                "width": "700px"
+            },
+            viewStyle: {
+                "margin": "10px"
+            }
         };
         return (
-            <div>
-                <input onChange={this.onFIlter} value={this.state.filter} placeholder="Enter Firstname...." style={inputStyle}></input>
+            <div style={pageStyle.viewStyle}>
+                <input onChange={this.onFIlter} value={this.state.filter} placeholder="Enter Firstname...." style={pageStyle.inputStyle}></input>
                 <span>Records:
                     <span id="count">{this.state.recordCount}</span>
                 </span>
-                <table class="table table-hover">
+                <table class="table table-bordered" style={pageStyle.tableStyle}>
                     <thead>
                         <tr>
                             <th>###</th>
