@@ -3,12 +3,7 @@ const React = require("react"),
     $ = require("jquery");
 
 const [targetNode] = $("#content");
-const tableStyle = {
-    "tbody": {
-        "height": "300px",
-        "overflow": "auto"
-    }
-};
+
 var Rows = React.createClass({
     render: function() {
         var item = this.props.item;
@@ -26,7 +21,13 @@ var Rows = React.createClass({
 
 var Body = React.createClass({
     getInitialState: function() {
-        return {"bodyFilter": ""};
+        return {"bodyFilteCount": 0};
+    },
+    updateCount: function(count, filterStr) {
+        var [countNode] = $("#count");
+        if (countNode) {
+            $("#count").html(count);
+        }
     },
     render: function() {
         var filterData = this.props.filter;
@@ -40,14 +41,14 @@ var Body = React.createClass({
             )
         });
         return (
-            <tbody>{filterRow}</tbody>
+            <tbody onComplete={this.updateCount(filterRow.length, filterData)}>{filterRow}</tbody>
         );
     }
 });
 
 var Table = React.createClass({
     getInitialState: function() {
-        return {"data": [], "filter": ""};
+        return {"data": [], "filter": "", "recordCount": 0};
     },
     componentDidMount: function() {
         this.fetchData();
@@ -59,6 +60,7 @@ var Table = React.createClass({
             cache: false,
             success: (response) => {
                 this.setState({"data": response});
+                this.setState({recordCount: response.length});
             },
             error: (error) => {
                 console.error("Error in fetching table data:::", error);
@@ -68,14 +70,23 @@ var Table = React.createClass({
     onFIlter: function(e) {
         this.setState({"filter": e.target.value});
     },
+    updateTotalRecord: function(count) {
+        this.setState({"recordCount": count});
+    },
     render: function() {
+        var inputStyle = {
+            "margin-right": "10px"
+        };
         return (
             <div>
-                <input onChange={this.onFIlter} value={this.state.filter} placeholder="Enter string....."></input>
+                <input onChange={this.onFIlter} value={this.state.filter} placeholder="Enter Firstname...." style={inputStyle}></input>
+                <span>Records:
+                    <span id="count">{this.state.recordCount}</span>
+                </span>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>##</th>
+                            <th>###</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
