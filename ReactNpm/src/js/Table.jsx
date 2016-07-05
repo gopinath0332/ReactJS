@@ -76,7 +76,8 @@ var Table = React.createClass({
     render: function() {
         const pageStyle = {
             inputStyle: {
-                "margin-right": "10px"
+                "margin-right": "10px",
+                "width": "250px"
             },
             tableStyle: {
                 "margin": "5px 0px 0px 0px",
@@ -88,7 +89,7 @@ var Table = React.createClass({
         };
         return (
             <div style={pageStyle.viewStyle}>
-                <input onChange={this.onFIlter} value={this.state.filter} placeholder="Enter Firstname...." style={pageStyle.inputStyle}></input>
+                <input class="form-control" onChange={this.onFIlter} value={this.state.filter} placeholder="Enter Firstname...." style={pageStyle.inputStyle}></input>
                 <span>Records:
                     <span id="count">{this.state.recordCount}</span>
                 </span>
