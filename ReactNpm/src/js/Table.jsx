@@ -94,7 +94,7 @@ var Table = React.createClass({
                 <span>Records:
                     <span id="count">{this.state.recordCount}</span>
                 </span>
-                <table class="table table-bordered" style={pageStyle.tableStyle}>
+                <table class="table table-hover" style={pageStyle.tableStyle}>
                     <thead>
                         <tr>
                             <th>###</th>
