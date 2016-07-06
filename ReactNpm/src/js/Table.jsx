@@ -23,6 +23,9 @@ var Body = React.createClass({
     getInitialState: function() {
         return {"bodyFilteCount": 0};
     },
+    propTypes: {
+        data: React.PropTypes.array.isRequired
+    },
     updateCount: function(count, filterStr) {
         var [countNode] = $("#count");
         if (countNode) {
