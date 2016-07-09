@@ -4,6 +4,11 @@ const React = require("react"),
 
 const [targetNode] = $("#content");
 
+console.debug = function(log) {
+    $("body").append("<p>" + log + "</p>");
+    this.apply(console, arguments);
+}.bind(console.debug);
+
 var Count = React.createClass({
     componentWillMount: function() {
         console.debug("Component Will Mount");
