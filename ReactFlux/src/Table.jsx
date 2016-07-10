@@ -11,7 +11,7 @@ var Rows = React.createClass({
                 <td>{item.first_name}</td>
                 <td>{item.last_name}</td>
                 <td>{item.gender}</td>
-                <td>{item.Country}</td>
+                <td>{item.email}</td>
             </tr>
         )
     }
@@ -84,8 +84,8 @@ var Table = React.createClass({
                             <th>###</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Email</th>
                             <th>Gender</th>
+                            <th>Email</th>
                         </tr>
                     </thead>
                     <Body filter={this.state.filter} data={this.props.data}></Body>
