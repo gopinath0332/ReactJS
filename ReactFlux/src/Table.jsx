@@ -51,23 +51,6 @@ var Table = React.createClass({
     getInitialState: function() {
         return {"data": [], "filter": "", "recordCount": 0};
     },
-    componentDidMount: function() {
-        this.fetchData();
-    },
-    fetchData: function() {
-        $.ajax({
-            url: this.props.url,
-            dataType: "json",
-            cache: false,
-            success: (response) => {
-                this.setState({"data": response});
-                this.setState({recordCount: response.length});
-            },
-            error: (error) => {
-                console.error("Error in fetching table data:::", error);
-            }
-        });
-    },
     onFIlter: function(e) {
         this.setState({"filter": e.target.value});
     },
@@ -105,7 +88,7 @@ var Table = React.createClass({
                             <th>Gender</th>
                         </tr>
                     </thead>
-                    <Body filter={this.state.filter} data={this.state.data}></Body>
+                    <Body filter={this.state.filter} data={this.props.data}></Body>
                 </table>
             </div>
         );
