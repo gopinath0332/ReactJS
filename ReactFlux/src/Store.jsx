@@ -28,7 +28,7 @@ class Store extends EventEmitter {
         return this.data;
     }
     addStudent(student) {
-        this.data.push(student);
+        this.data.splice(0,0,student);
         this.emit("store_update");
     }
     handleDispatcherActions(action) {
