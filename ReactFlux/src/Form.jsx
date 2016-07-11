@@ -40,4 +40,3 @@ var Form = React.createClass({
 });
 
 export default Form;
-Form;
