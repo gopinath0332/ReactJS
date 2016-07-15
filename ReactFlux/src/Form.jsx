@@ -31,7 +31,10 @@ var Form = React.createClass({
                     <input type="text" name="first_name" className="form-control" placeholder="First Name.."/>
                     <input type="text" name="last_name" className="form-control" placeholder="Last Name.."/>
                     <input type="text" name="email" className="form-control" placeholder="Email.."/>
-                    <input type="text" name="gender" className="form-control" placeholder="Gender.."/>
+                    <select name="gender" className="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
                 </form>
                 <button class="btn btn-success" onClick={this.handleSubmit}>Register</button>
             </div>
