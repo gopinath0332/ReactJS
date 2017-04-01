@@ -2,7 +2,6 @@ import React,{Component} from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
 
-import "../less/app.less";
 let [target] = $("#content");
 class Book extends Component{
   constructor(args){

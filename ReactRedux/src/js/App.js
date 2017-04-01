@@ -1,11 +1,13 @@
 import React,{Component} from "react";
-import ReactDOM from "react-dom";
+import {render} from "react-dom";
 import {Router, Route, IndexRoute, hashHistory, Link} from "react-router";
 import $ from "jquery";
 
-import Home from "./HomePage";
-import Book from "./BookPage";
-import About from "./AboutPage";
+import "../less/app.less";
+
+import Home from "./views/HomePage";
+import Book from "./views/BookPage";
+import About from "./views/AboutPage";
 const [targetNode] = $("#content");
 
 class App extends Component{
@@ -31,7 +33,7 @@ class App extends Component{
   );
   }
 }
-ReactDOM.render(
+render(
     <div>
     <Router history={hashHistory}>
         <Route path="/" component={App}>
