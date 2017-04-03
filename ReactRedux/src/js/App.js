@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import {render} from "react-dom";
+import {Provider} from "react-redux";
 import {Router, Route, IndexRoute, hashHistory, Link} from "react-router";
 import $ from "jquery";
 
@@ -9,6 +10,9 @@ import Home from "./views/HomePage";
 import Book from "./views/BookPage";
 import About from "./views/AboutPage";
 const [targetNode] = $("#content");
+import configureStore from "./store/configureStore";
+
+const store = configureStore();
 
 class App extends Component{
   render(){
@@ -35,12 +39,14 @@ class App extends Component{
 }
 render(
     <div>
-    <Router history={hashHistory}>
-        <Route path="/" component={App}>
-            <IndexRoute component={Book}></IndexRoute>
-            <Route path="/about" component={About}></Route>
-            <Route path="/cart" component={Book}></Route>
-            <Route path="/home" component={Home}></Route>
-        </Route>
-    </Router>
+      <Provider store={store}>
+          <Router history={hashHistory}>
+              <Route path="/" component={App}>
+                  <IndexRoute component={Book}></IndexRoute>
+                  <Route path="/about" component={About}></Route>
+                  <Route path="/cart" component={Book}></Route>
+                  <Route path="/home" component={Home}></Route>
+              </Route>
+          </Router>
+      </Provider>
 </div>, targetNode);
