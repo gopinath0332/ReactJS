@@ -1,8 +1,11 @@
 import React,{Component} from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
+import { connect } from 'react-redux';
+import * as bookActions from '../actions/bookAction';
 
 let [target] = $("#content");
+
 class Book extends Component{
   constructor(args){
     super(args);
@@ -12,6 +15,7 @@ class Book extends Component{
     let book = this.bookCat.value;
     let count = this.catCount.value;
     console.debug(book,"---",count);
+    this.props.createBook(book);
   }
   render() {
     let books = this.props.books.map((book,index)=>{ 
@@ -47,4 +51,20 @@ class Book extends Component{
 Book.defaultProps ={
   books :[{title:"Science",total: 20},{title:"Mathematics",total:40},{title:"Adeventure",total:15}]
 };
-export default Book;
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    // You can now say this.props.books
+    books: state.books
+  }
+};
+
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+  return {
+  // You can now say this.props.createBook
+    createBook: book => dispatch(bookActions.createBook(book))
+  }
+};
+// export default Book;
+export default connect(mapStateToProps, mapDispatchToProps)(Book);
