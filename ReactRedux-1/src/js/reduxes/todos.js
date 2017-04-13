@@ -20,7 +20,7 @@ class Todos extends Component {
       $(evt.target).toggleClass("strike");
     }
     render() {
-      let tasks = this.props.tasks.map((task,index)=><li key={index} onClick={this.toggle}>{task}</li>);
+      let tasks = this.props.tasks.map((task,index)=><li key={index}>{task}</li>);
         return (
             <div>
                 <input type="text" ref={(node) => this.name = node}/>
@@ -35,7 +35,8 @@ class Todos extends Component {
 const reducer = (state = [], action) => {
     switch (action.type) {
         case "ADD":
-            state.push(action.payload);
+            // state.push(action.payload);
+            state = [...state,action.payload];
             break;
         default:
             console.debug("no default action handler in reducer");

@@ -7,7 +7,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     context: path.join(__dirname, "src"),
     devtool: debug ? "inline-sourcemap" : null,
-    entry: "./js/reduxes/todos.js",
+    entry: "./js/reduxes/toggleTodos.js",
     module: {
         loaders: [{
             test: /\.js?$/,
