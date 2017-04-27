@@ -7,14 +7,14 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     context: path.join(__dirname, "src"),
     devtool: debug ? "inline-sourcemap" : null,
-    entry: "./js/reduxes/toggleTodos.js",
+    entry: "./js/reduxes/table_provider.js",
     module: {
         loaders: [{
             test: /\.js?$/,
             exclude: /(node_modules|bower_components)/,
             loader: 'babel-loader',
             query: {
-                presets: ['react', 'es2015', 'stage-0'],
+                presets: ['react', 'es2015', 'stage-0',"es2017"],
                 plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy',"transform-object-rest-spread"],
             }
         },  {
