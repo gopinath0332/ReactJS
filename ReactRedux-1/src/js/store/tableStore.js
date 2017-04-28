@@ -5,10 +5,10 @@ import promiseMiddleware from "redux-promise-middleware";
 import reducer from "../reducers/tableReducer";
 
 const enhancers = compose(
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+	window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 const middleware = applyMiddleware(promiseMiddleware(), createLogger());
 
-const finalStore = compose(middleware,enhancers)(createStore);
+const finalStore = compose(middleware, enhancers)(createStore);
 // export default createStore(reducer, middleware);
 export default finalStore(reducer);
