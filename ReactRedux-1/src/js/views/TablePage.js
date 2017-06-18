@@ -51,7 +51,7 @@ class Form extends Component {
 			company: this.company.value,
 			email: this.email.value,
 			phone: this.phone.value,
-			balance: this.balance.value
+			balance: "$"+this.balance.value
 		};
 		this.props.dispatch(addUser(payload));
 	}
